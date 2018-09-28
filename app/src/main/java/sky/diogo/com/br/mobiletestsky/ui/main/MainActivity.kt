@@ -5,9 +5,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sky.diogo.com.br.mobiletestsky.R
 import sky.diogo.com.br.mobiletestsky.ui.base.BaseActivity
 import sky.diogo.com.br.mobiletestsky.ui.data.model.Movies
-import sky.diogo.com.br.mobiletestsky.widget.AutoFitGridLayoutManager
-import android.support.v7.widget.DividerItemDecoration
-
 
 
 class MainActivity : BaseActivity(), MainView {
