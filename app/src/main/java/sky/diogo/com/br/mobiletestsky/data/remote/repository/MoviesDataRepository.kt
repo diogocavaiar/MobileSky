@@ -1,8 +1,8 @@
-package sky.diogo.com.br.mobiletestsky.ui.data.remote.repository
+package sky.diogo.com.br.mobiletestsky.data.remote.repository
 
 import io.reactivex.Observable
-import sky.diogo.com.br.mobiletestsky.ui.data.model.Movies
-import sky.diogo.com.br.mobiletestsky.ui.data.remote.service.MoviesService
+import sky.diogo.com.br.mobiletestsky.data.model.Movies
+import sky.diogo.com.br.mobiletestsky.data.remote.service.MoviesService
 
 class MoviesDataRepository : Repository {
 

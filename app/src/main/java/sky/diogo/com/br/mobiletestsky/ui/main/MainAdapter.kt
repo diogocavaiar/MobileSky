@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import sky.diogo.com.br.mobiletestsky.R
-import sky.diogo.com.br.mobiletestsky.ui.data.model.Movies
+import sky.diogo.com.br.mobiletestsky.data.model.Movies
 
-class MainAdapter(var mMovies: MutableList<Movies> = mutableListOf()) : RecyclerView.Adapter<MainViewHolder>() {
+class MainAdapter(val listener: OnClickCard, var mMovies: MutableList<Movies> = mutableListOf()) : RecyclerView.Adapter<MainViewHolder>() {
 
     private val VIEW_TYPE_EMPTY_STATE = 0
     private val VIEW_TYPE_DADOS = 1
@@ -34,7 +34,7 @@ class MainAdapter(var mMovies: MutableList<Movies> = mutableListOf()) : Recycler
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         if(holder.itemViewType == VIEW_TYPE_DADOS)
-            holder.bind(mMovies[position])
+            holder.bind(mMovies[position], listener)
     }
 
     fun setMovies(movies: List<Movies>) {

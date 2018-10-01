@@ -1,4 +1,4 @@
-package sky.diogo.com.br.mobiletestsky.ui.data.remote
+package sky.diogo.com.br.mobiletestsky.data.remote
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
