@@ -20,11 +20,9 @@ class DetailActivity : AppCompatActivity() {
 
     private fun initUI() {
 
-        val actionBar = getSupportActionBar()
-        if(actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        activity_detail_collapsing_toolbar!!.title = intent.getStringExtra(Constants.TITLE)
+        activity_detail_collapsing_toolbar.title = intent.getStringExtra(Constants.TITLE)
 
         Glide.with(activity_detail_image!!.context)
                 .load(intent.getStringExtra(Constants.IMAGE))
@@ -35,8 +33,8 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item!!.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             android.R.id.home -> {
                 finish()
             }

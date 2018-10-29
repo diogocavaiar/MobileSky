@@ -30,8 +30,10 @@ class MainActivity : BaseActivity(), MainView, OnClickCard {
     }
 
     override fun initUI() {
-        activity_main_recyclerView.layoutManager = mGridLayoutManager
-        activity_main_recyclerView.adapter = mAdapter
+        activity_main_recyclerView.apply {
+            layoutManager = mGridLayoutManager
+            adapter = mAdapter
+        }
     }
 
     override fun initPresenter() {
@@ -62,9 +64,11 @@ class MainActivity : BaseActivity(), MainView, OnClickCard {
 
     override fun navigationToDetail(title: String?, image: String?, overview: String?) {
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(Constants.TITLE, title)
-        intent.putExtra(Constants.IMAGE, image)
-        intent.putExtra(Constants.OVERVIEW, overview)
+        intent.apply {
+            putExtra(Constants.TITLE, title)
+            putExtra(Constants.IMAGE, image)
+            putExtra(Constants.OVERVIEW, overview)
+        }
         startActivity(intent)
     }
 

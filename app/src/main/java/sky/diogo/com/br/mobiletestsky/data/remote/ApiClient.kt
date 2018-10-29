@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
 
-    private var retrofit: Retrofit? = null
+    private lateinit var retrofit: Retrofit
 
     fun getClient(): MoviesApi {
 
@@ -16,19 +16,18 @@ object ApiClient {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .connectTimeout(1, TimeUnit.SECONDS)
                 .addInterceptor { chain ->
-                    var request = chain.request()
+                    val request = chain.request()
                     chain.proceed(request)
                 }
                 .build()
 
-        if (retrofit == null) {
-            retrofit = Retrofit.Builder()
+        retrofit = Retrofit.Builder()
                     .baseUrl("https://sky-exercise.herokuapp.com/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)
                     .build()
-        }
-        return retrofit!!.create(MoviesApi::class.java)
+
+        return retrofit.create(MoviesApi::class.java)
     }
 }
